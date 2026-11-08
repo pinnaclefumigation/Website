@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Pinnacle Fumigation Services",
+  title: "Privacy Policy",
   description:
     "How Pinnacle Fumigation Services collects, uses, and protects your information, including our use of cookies and third-party advertising.",
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | Pinnacle Fumigation Services",
+    description:
+      "How Pinnacle Fumigation Services collects, uses, and protects your information, including our use of cookies and third-party advertising.",
+    url: "https://pinnaclefumigation.co.za/privacy-policy",
+  },
+  twitter: { title: "Privacy Policy | Pinnacle Fumigation Services" },
 };
 
 export default function PrivacyPolicy() {

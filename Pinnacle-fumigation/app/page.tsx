@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, type FormEvent } from "react";
+import { SERVICE_AREAS } from "./content";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -417,14 +418,15 @@ export default function Home() {
                 Professional Fumigation Services
               </div>
               <h1 className="font-display uppercase text-4xl sm:text-5xl lg:text-6xl font-semibold text-paper leading-[1.05] mb-6 tracking-tight">
-                Eliminate Pests.
+                Pest Control & Fumigation
                 <br />
-                <span className="text-paper/60">Protect Your Space.</span>
+                <span className="text-paper/60">Across Gauteng.</span>
               </h1>
               <p className="text-lg text-paper/70 leading-relaxed mb-8 max-w-xl">
-                Pinnacle Fumigation Services provides high-end, professional pest
-                control for homes and businesses. We target cockroaches,
-                termites, bed bugs, rodents and more — with guaranteed results.
+                Pinnacle Fumigation Services provides pest control and fumigation
+                for homes and businesses in Johannesburg, Pretoria, and
+                surrounding Gauteng areas. Request an assessment for
+                cockroaches, termites, bed bugs, rodents, and more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -568,6 +570,31 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="service-areas" className="py-16 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-8">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-hazard-deep mb-3">
+              {"// Where We Work"}
+            </p>
+            <h2 className="font-display uppercase text-3xl sm:text-4xl font-semibold text-brand-deep tracking-tight">
+              Pest Control Across Johannesburg, Pretoria &amp; Gauteng
+            </h2>
+            <p className="mt-4 text-ink/60 leading-relaxed">
+              We serve homes and businesses across Gauteng. Contact us to
+              confirm availability for your property and discuss the right
+              treatment for your pest problem.
+            </p>
+          </div>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 border-t border-ink/10 pt-6">
+            {SERVICE_AREAS.map((area) => (
+              <li key={area} className="text-sm text-ink/70">
+                {area}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -890,6 +917,7 @@ export default function Home() {
                     ),
                     label: "WhatsApp or Call",
                     value: "067 759 5706",
+                    href: "tel:+27677595706",
                   },
                   {
                     icon: (
@@ -908,13 +936,20 @@ export default function Home() {
                     ),
                     label: "Email",
                     value: "pinnaclefumigation@gmail.com",
+                    href: "mailto:pinnaclefumigation@gmail.com",
                   },
                 ].map((contact) => (
                   <div key={contact.label} className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-hazard flex items-center justify-center shrink-0">{contact.icon}</div>
                     <div>
                       <p className="font-mono text-[10px] uppercase tracking-wide text-paper/50">{contact.label}</p>
-                      <p className="text-paper font-semibold">{contact.value}</p>
+                      {contact.href ? (
+                        <a href={contact.href} className="text-paper font-semibold hover:text-hazard transition-colors">
+                          {contact.value}
+                        </a>
+                      ) : (
+                        <p className="text-paper font-semibold">{contact.value}</p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -1081,6 +1116,7 @@ export default function Home() {
                 {[
                   { label: "About Us", href: "#about" },
                   { label: "Species Guide", href: "#species" },
+                  { label: "Service Areas", href: "#service-areas" },
                   { label: "FAQ", href: "#faq" },
                   { label: "Reviews", href: "#reviews" },
                   { label: "Contact Us", href: "#contact" },
