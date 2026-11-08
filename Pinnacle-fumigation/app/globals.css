@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4f1e6;
+  --paper-dim: #ece6d4;
+  --ink: #1c2414;
+  --brand: #456416;
+  --brand-deep: #212b10;
+  --brand-mid: #33470f;
+  --hazard: #d9a53b;
+  --hazard-deep: #a97a1f;
+  --rust: #a8442b;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ink: var(--ink);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-mid: var(--brand-mid);
+  --color-hazard: var(--hazard);
+  --color-hazard-deep: var(--hazard-deep);
+  --color-rust: var(--rust);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Diagonal hazard-stripe divider used sparingly between sections */
+.hazard-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--hazard) 0px,
+    var(--hazard) 14px,
+    var(--brand-deep) 14px,
+    var(--brand-deep) 28px
+  );
+}
+
+.paper-grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(28, 36, 20, 0.08) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
